@@ -65,7 +65,7 @@ public class MapGeocode {
 			}
 			
 			jsonObj = (JSONObject) jsonObj.get("result");
-			int total = (int) jsonObj.get("total");
+			int total = (Integer) jsonObj.get("total");
 			if (total != 1) {
 				// 좌표값 검색 결과가 여러개이거나 없을 경우에는 정확한 좌표를 리턴해줄수 없기 때문에
 				// null 값을 리턴해 사용자가 직접 지도에서 설정하게 해야한다.
