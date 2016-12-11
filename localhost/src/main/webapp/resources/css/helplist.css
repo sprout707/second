@@ -1,0 +1,103 @@
+@CHARSET "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+	color: #414141;
+}
+#help_header{
+	border:1px solid black;
+	padding:70px;
+	margin-left:auto; 
+	margin-right:auto;
+}
+
+#help_wrapper{
+	width: 100%;
+	margin: 0; padding: 0;
+}
+
+#help_nav{
+	width: 20%;
+	float: left;
+}
+
+#help_content{
+	width: 78%; height: auto;
+	float: right;
+}
+
+ul{
+	list-style: none;
+}
+
+ul li a{
+	cursor: pointer;
+	font-size: 16px;
+}
+
+a {
+	text-decoration: none;
+	color: #767676;
+}
+
+a:hover {
+	text-decoration: none;
+	color: silver;
+}
+
+h1 {
+	color: #828282;
+}
+
+.help_btn {
+	float: right;
+	background-color: white;
+	color: #454545;
+	width: 150px; height: 50px;
+	margin-right: 50px;	
+	border: 0.5px solid silver;
+	border-radius: 3px 3px 3px 3px;
+	cursor: pointer;
+	margin-top: 300px;
+}
+
+#searchWrapper{
+	width: 400px; 
+	margin-bottom: 30px;
+}
+
+#searchIcon{
+	width: 50px; height: 40px; 
+	background-color: white; 
+	border: 0.5px solid black; 
+	border-right: none; 
+	border-radius: 10px 0px 0px 10px; 
+	float: left;
+}
+
+#sico{
+	width: 20px; height: 20px; 
+	color: gray; 
+	padding-top: 10px; padding-left: 10px;
+}
+
+#searchfrm{
+	margin-top: 10px; padding: 0;
+}
+
+#search{
+	border: 0.5px solid black; 
+	border-left: none; 
+	border-radius: 0px 10px 10px 0px; 
+	margin: 0; padding: 0; 
+	width: 250px; height: 40px;
+}
+
+
+
+
+
+
+
+

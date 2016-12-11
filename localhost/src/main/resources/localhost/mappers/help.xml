@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- #11. mapper 기본 설정 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<!-- #12. 루트 엘리먼트 및 네임스페이스 설정하기(이 네임스페이스의 이름은 프로젝트 전체 내에서 반드시 고유해야만 한다.) --> 
+<mapper namespace="help">
+
+	<!-- 도움말등록 -->
+	<insert id="insert" parameterType="com.og.localhost.vo.HelpVO">
+		
+		insert into help(no, help_CategoryNO, title, content, fileName)
+		values(seq_help_no.nextval, #{help_categoryNo}, #{title}, #{content}, #{fileName})
+
+	</insert>
+	
+	<select id="selectAll" resultType="com.og.localhost.vo.HelpVO">
+		select h.no, h.help_categoryNo, title, content, fileName, type
+		from help h, help_Category c
+		where h.help_categoryNo=c.no
+	</select>
+	
+	<select id="selectAllCategory" resultType="com.og.localhost.vo.CategoryVO">
+		select no, type
+		from help_Category
+	</select>
+	
+	<select id="searchContent" resultType="com.og.localhost.vo.HelpVO" parameterType="String">
+		select h.no, h.help_categoryNo, title, content, fileName, type
+		from help h, help_Category c
+		where h.help_categoryNo=c.no
+		and instr(lower(content), lower(#{search}))>0
+	</select>
+	
+	<select id="searchNo" resultType="com.og.localhost.vo.HelpVO" parameterType="com.og.localhost.vo.HelpVO">
+		select h.no, h.help_categoryNo, title, content, fileName, type
+		from help h, help_Category c
+		where h.help_categoryNo=c.no
+		and h.no=#{no}
+	</select>
+	
+	<select id="helpFirst" resultType="com.og.localhost.vo.HelpVO">
+		select vv.rnum, vv.no, vv.category as help_categoryNo, vv.title
+		from ( select rownum as rnum, no, title, HELP_CATEGORYNO as category
+		  	   from help 
+       		   order by no 
+       		 ) vv, 
+     		 ( select min(v.rnum) rnum, v.category
+        	   from  ( select rownum as rnum, no, title, HELP_CATEGORYNO as category
+		         	   from help 
+              		   order by no 
+              		 ) v, help h
+       		   where v.no=h.no
+       		   group by category 
+       		  ) hh
+ 		where vv.rnum=hh.rnum
+	</select>
+	
+	<select id="searchCategoryNo" resultType="com.og.localhost.vo.HelpVO" parameterType="com.og.localhost.vo.HelpVO">
+		select h.no, h.help_categoryNo, title, content, fileName, type
+		from help h, help_Category c
+		where h.help_categoryNo=c.no
+		and h.help_categoryNo=#{help_categoryNo}
+	</select>
+	
+</mapper>
