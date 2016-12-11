@@ -9,20 +9,17 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery/jquery-2.0.0.js"></script>
 
 <!-- css -->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/memberUpdate.css?ver=0.017"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/userupdate.css?ver=0.017"/>
 <title>회원정보 수정</title>
 
-<c:if test="${!resultMsg.isEmpty() }">
+<c:if test="${!empty resultMsg }">
 	<script type="text/javascript">
-		
 		$(document).ready(function()
 		{
-			$("#updateResult").innerHTML="${resultMsg}";
+			$("#updateResult").text("${resultMsg}");
 			$("#updateResult").show();
-			$("#updateResult").fadeOut('slow');
-			
+			$("#updateResult").fadeOut(3000);
 		});
-	
 	</script>
 </c:if>
 
@@ -42,7 +39,7 @@
 </nav>
 
 <div id="full_wrapper">
-<form id="userUpdate" method="post" action="${pageContext.request.contextPath }/user/userupdate"> <!-- 유저업데이트 -->
+<form id="userUpdate" method="post" action="${pageContext.request.contextPath }/user/userupdate" enctype="multipart/form-data"> <!-- 유저업데이트 -->
 
 	<input type="text" name="no" hidden="hidden" value="${userInfo.no }"/> 
 
@@ -135,7 +132,7 @@
 			<td><img alt="프로필사진" src="${userInfo.fileName }"></td>
 		</tr>
 		<tr>
-			<td> </td><td><input type="file" name="fileName" class="btn"/></td>
+			<td> </td><td><input type="file" name="file" class="btn"/></td>
 		</tr>
 	</table>
 

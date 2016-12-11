@@ -142,9 +142,11 @@ public class HouseController {
 	
 	
 	
+	
+	
 	//-------------------------------------------------------------------------------------회원 Controller로 옮기기
-	//회원정보 수정
-	@RequestMapping(value="/user/userupdatefrm")
+	//회원정보 수정 페이지
+	@RequestMapping(value="/user/userupdate", method=RequestMethod.GET)
 	public String userModifyFrm(HttpSession session, Model model)
 	{
 		//00. test
@@ -157,7 +159,8 @@ public class HouseController {
 			return "redirect:/help/helplist"; //세션값 없을시(로그인 안한경우) 보낼 페이지
 		
 		
-		//2. 회원 식별키 유효성 검사
+		
+		//2. 회원 식별키 유효성 검사(형변환 검사)
 		int no=-1;
 		
 		try{
@@ -168,24 +171,33 @@ public class HouseController {
 		}
 		
 		if(no==-1)
-			return "redirect:/help/helplist";
+			return "redirect:/help/helplist"; //식별키 유효하지 않으면 보낼 페이지
+		
 
 		//3. 모델&뷰 설정
 		model.addAttribute("userInfo",service.userSearchNo(no));
 		return "help/userupdate";
 	}
 	
+	//회원정보 수정 기능
 	@RequestMapping(value="/user/userupdate", method=RequestMethod.POST)
-	public String userModify(UserVO vo, Model model)
+	public String userModify(MultipartHttpServletRequest req, UserVO vo, Model model)
 	{
-		//1. 업데이트
+		//1. 프로필 사진 업로드 확인
+		if(!req.getFileNames().hasNext())
+			vo.setFileName("파일이름"); //파일이름 지정 로직 필요
+		
+		
+		//2. 업데이트
 		int updateResult=service.userUpdate(vo);
 		
-		//2. 결과 메세지 세팅
+		
+		//3. 결과 메세지 세팅
 		String msg="회원정보 수정 성공";
 		
 		if(updateResult<=0)
 			msg="회원정보 수정 실패";
+		
 		
 		//4. 모델&뷰 설정
 		model.addAttribute("resultMsg",msg);

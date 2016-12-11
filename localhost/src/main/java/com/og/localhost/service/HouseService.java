@@ -80,25 +80,32 @@ public class HouseService implements InterHouseService {
 	public UserVO userSearchNo(int no) {
 		UserVO vo=dao.searchNo(no);
 		
-		//전화번호 보여질 모양 가다듬기
-		String phone=vo.getPhone();
+		//전화번호 view form으로 변환
+		/*String phone=vo.getPhone();
 		phone=phone.substring(0, 3)+"-"+phone.substring(3, 7)+"-"+phone.substring(7);
 		
-		vo.setPhone(phone);
+		vo.setPhone(phone);*/
 		
 		return vo;
 	}
 	
 	//회원정보 업데이트
 	public int userUpdate(UserVO vo) {
+
+		//1. DB 넣을 정보 변환
+		vo.setPhone(vo.getPhone().replaceAll("-", "")); //휴대폰번호 DB form으로 변환
+		vo.setBirth(vo.getYear()+"/"+vo.getMonth()+"/"+vo.getDate()); //생일 DB form으로 변환
 		
-		//휴대폰번호 DB form으로 변환
-		vo.setPhone(vo.getPhone().replaceAll("-", ""));
 		
-		//생일 DB form으로 변환
-		vo.setBirth(vo.getYear()+"/"+vo.getMonth()+"/"+vo.getDate());
+		//2. DB action(update)
+		int result=dao.userUpdate(vo);
 		
-		return dao.userUpdate(vo);
+		
+		//3. 프로필 사진 변경 있을 시 update
+		if(vo.getFileName()!=null)
+			result+=dao.userFileUpdate(vo);
+		
+		return result;
 	}
 	
 }

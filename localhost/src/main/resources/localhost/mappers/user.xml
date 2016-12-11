@@ -22,8 +22,13 @@
    			 ,gender=#{gender}
    			 ,phone=#{phone}
    			 ,email=#{email}
-   			 ,filename=#{fileName}
    			 ,birth=#{birth}
+		where no=#{no}
+	</update>
+	
+	<update id="userFileUpdate" parameterType="com.og.localhost.vo.UserVO">
+		update users
+		set  filename=#{fileName}
 		where no=#{no}
 	</update>
 

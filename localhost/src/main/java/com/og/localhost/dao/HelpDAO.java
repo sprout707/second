@@ -59,7 +59,11 @@ public class HelpDAO implements InterHelpDAO {
 	}
 	
 	public int userUpdate(UserVO vo) {
-		return sqlsession.update("user.userUpdate", vo);
+		return sqlsession.update("user.userUpdate", vo); //이름, 생일, 성별, 이메일, 휴대전화번호 업데이트
+	}
+	
+	public int userFileUpdate(UserVO vo) {
+		return sqlsession.update("user.userFileUpdate", vo);
 	}
 	
 }
