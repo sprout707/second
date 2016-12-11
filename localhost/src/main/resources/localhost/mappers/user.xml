@@ -5,4 +5,28 @@
 
 <!-- #12. 루트 엘리먼트 및 네임스페이스 설정하기(이 네임스페이스의 이름은 프로젝트 전체 내에서 반드시 고유해야만 한다.) --> 
 <mapper namespace="user">
+
+	<select id="searchNo" resultType="com.og.localhost.vo.UserVO" parameterType="int">
+		select no, name, gender, phone, email, fileName as fileName
+     			 , to_char(birth, 'yyyy') as year
+     			 , to_char(birth, 'mm') as month
+    			 , to_char(birth, 'dd') as "date"
+		from users
+		where status!=0
+		and no=#{no}
+	</select>
+	
+	<update id="userUpdate" parameterType="com.og.localhost.vo.UserVO">
+		update users
+		set  name=#{name}
+   			 ,gender=#{gender}
+   			 ,phone=#{phone}
+   			 ,email=#{email}
+   			 ,filename=#{fileName}
+   			 ,birth=#{birth}
+		where no=#{no}
+	</update>
+
+
+
 </mapper>

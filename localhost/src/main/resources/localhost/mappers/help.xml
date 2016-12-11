@@ -63,4 +63,12 @@
 		and h.help_categoryNo=#{help_categoryNo}
 	</select>
 	
+	
+	
+	
+	
+	
+	
+	
+	
 </mapper>

@@ -3,10 +3,12 @@ package com.og.localhost.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -14,6 +16,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.og.localhost.service.HouseService;
 import com.og.localhost.vo.CategoryVO;
 import com.og.localhost.vo.HelpVO;
+import com.og.localhost.vo.UserVO;
 
 @Controller
 public class HouseController {
@@ -136,6 +139,66 @@ public class HouseController {
 	
 	/*// 글 목록 (분류클릭했을때)
 	@RequestMapping(value="/help/helplist/category")*/
+	
+	
+	
+	//-------------------------------------------------------------------------------------회원 Controller로 옮기기
+	//회원정보 수정
+	@RequestMapping(value="/user/userupdatefrm")
+	public String userModifyFrm(HttpSession session, Model model)
+	{
+		//00. test
+		session.setAttribute("user", "1");
+		
+		//1. 세션값 체크
+		String user=(String)session.getAttribute("user"); //세션에서 아이디 값 가져오기
+		
+		if(user==null || user=="")
+			return "redirect:/help/helplist"; //세션값 없을시(로그인 안한경우) 보낼 페이지
+		
+		
+		//2. 회원 식별키 유효성 검사
+		int no=-1;
+		
+		try{
+			no=Integer.parseInt(user);
+		
+		}catch(Exception e){
+			log.error("Exception: "+"회원식별키 변환 실패");
+		}
+		
+		if(no==-1)
+			return "redirect:/help/helplist";
+
+		//3. 모델&뷰 설정
+		model.addAttribute("userInfo",service.userSearchNo(no));
+		return "help/userupdate";
+	}
+	
+	@RequestMapping(value="/user/userupdate", method=RequestMethod.POST)
+	public String userModify(UserVO vo, Model model)
+	{
+		//1. 업데이트
+		int updateResult=service.userUpdate(vo);
+		
+		//2. 결과 메세지 세팅
+		String msg="회원정보 수정 성공";
+		
+		if(updateResult<=0)
+			msg="회원정보 수정 실패";
+		
+		//4. 모델&뷰 설정
+		model.addAttribute("resultMsg",msg);
+		model.addAttribute("userInfo",service.userSearchNo(vo.getNo()));
+		return "help/userupdate";
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }
 

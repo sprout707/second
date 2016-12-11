@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.og.localhost.vo.CategoryVO;
 import com.og.localhost.vo.HelpVO;
+import com.og.localhost.vo.UserVO;
 
 @Repository
 public class HelpDAO implements InterHelpDAO {
@@ -50,4 +51,35 @@ public class HelpDAO implements InterHelpDAO {
 		return sqlsession.selectList("help.searchCategoryNo", vo);
 	}
 	
+	
+	
+	//-----------------------------------------------------------------------회원 DAO로 옮기기
+	public UserVO searchNo(int no) {
+		return sqlsession.selectOne("user.searchNo", no);
+	}
+	
+	public int userUpdate(UserVO vo) {
+		return sqlsession.update("user.userUpdate", vo);
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

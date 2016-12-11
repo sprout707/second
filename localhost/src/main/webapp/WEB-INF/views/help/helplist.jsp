@@ -6,7 +6,7 @@
 <meta content="text/html; charset=UTF-8">
 <title>localhost 도움말</title>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery/jquery-2.0.0.js"></script>
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/boot/css/bootstrap.css"/>

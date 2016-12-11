@@ -15,6 +15,11 @@ public class UserVO {
 	private int point;
 	private String regDate;
 	private int status; // default 1 , 체크제약 (0이면 탈퇴)
+	
+	//충한 추가
+	private String year;
+	private String month;
+	private String date;
 
 	public int getNo() {
 		return no;
@@ -119,5 +124,30 @@ public class UserVO {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
 
 }

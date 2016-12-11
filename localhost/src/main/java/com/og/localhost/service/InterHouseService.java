@@ -17,4 +17,5 @@ public interface InterHouseService {
 	public HelpVO helpListSearchNo(HelpVO vo);
 	public List<HelpVO> helpListSearchCategory(HelpVO vo);
 	
+	
 }
