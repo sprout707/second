@@ -73,6 +73,9 @@ public class HouseController {
 		//DB액션 - 찾기
 		List<HelpVO> list=service.helpListSearchContent(search);
 		
+		if(list==null || list.size()<=0)
+			req.setAttribute("resultNull", "\""+search+"\"를 포함한 항목이 도움말에 존재하지 않습니다.");
+		
 		//모델&뷰 설정
 		req.setAttribute("list", list);
 		return "help/helplist";

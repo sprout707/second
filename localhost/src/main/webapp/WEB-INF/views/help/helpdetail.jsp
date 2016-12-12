@@ -7,7 +7,7 @@
 <title>localhost 도움말</title>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/helplist.css"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/helplist.css?ver=0.002"/>
 <script type="text/javascript">
 
 	//first_nav이외의 리스트를 숨긴다. -> css로 분리 가능
@@ -36,9 +36,17 @@
 
  <div id="help_header">
   <h1>어떻게 도와드릴까요?</h1>
-  <form action="${pageContext.request.contextPath }/help/helplist/search" method="get" id="searchHelp">
-  	<input type="text" name="search" placeholder="질문을 입력하거나 키워드로 검색하세요">
-  </form>
+  
+    <div id="searchWrapper">
+	 <div id="searchIcon">
+		<span id="sico" class="glyphicon glyphicon-search" aria-hidden="true"></span>
+	 </div>
+
+	 <form action="${pageContext.request.contextPath }/help/helplist/search" method="get" id="searchHelp">
+		<input type="text" id="search" name="search" placeholder="검색 값을 입력하세요" /> 
+	 </form>
+	</div>
+	
  </div>
 	
 <!--  <div id="help_custom">
