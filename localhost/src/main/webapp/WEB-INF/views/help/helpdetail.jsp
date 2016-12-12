@@ -213,90 +213,90 @@
    <li><a id="idprofile">계정과 프로필</a></li>
    <li><a id="hosting">호스팅</a></li>
    <li><a id="travel">여행</a></li>
-   <li><a>후기</a></li>
+   <li><a href="${pageContext.request.contextPath}/help/helplist?category=5">후기</a></li>
    <li><a id="secure">신뢰와 안전</a></li>
-   <li><a>피드백</a></li>
-   <li><a>문제 해결하기</a></li>
+   <li><a href="${pageContext.request.contextPath}/help/helplist?category=7">피드백</a></li>
+   <li><a href="${pageContext.request.contextPath}/help/helplist?category=8">문제 해결하기</a></li>
   </ul>
   
-	  <ul id="start_nav" style="cursor:pointer">
-	  	<li class="back">←뒤로가기</li>
+	  <ul id="start_nav">
+	  	<li class="back"><a>←뒤로가기</a></li>
 	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=11">이용방법</a></li>
 	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=12">여행방법</a></li>
-	  	<li>호스팅방법</li>
+	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=12">호스팅방법</a></li>
 	  </ul>
 	  
-	  <ul id="idprofile_nav" style="cursor:pointer">
-	  	<li class="back">←뒤로가기</li>
-	  	<li id="second_profile">프로필관리</li>
-	  	<li>보안과 비밀번호</li>
-	  	<li>문제해결</li>
+	  <ul id="idprofile_nav">
+	  	<li class="back"><a>←뒤로가기</a></li>
+	  	<li id="second_profile"><a>프로필관리</a></li>
+	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=22">보안과 비밀번호</a></li>
+	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=23">문제해결</a></li>
 	  </ul>
 	  
-		  <ul id="second_profile_nav" style="cursor:pointer">
-		  	<li class="sec_back1">←뒤로가기</li>
-		  	<li>내정보</li>
-		  	<li>본인인증</li>
+		  <ul id="second_profile_nav">
+		  	<li class="sec_back1"><a>←뒤로가기</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=211">내정보</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=212">본인인증</a></li>
 		  </ul>
 	  
-	  <ul id="hosting_nav" style="cursor:pointer">
-	  	<li class="back">←뒤로가기</li>
-	  	<li>호스트되기</li>
+	  <ul id="hosting_nav">
+	  	<li class="back"><a>←뒤로가기</a></li>
+	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=31">호스트되기</a></li>
 	  	<li id="second_lodging">숙소관리</li>
 	  	<li id="second_booking">예약관리</li>
 	  	<li id="second_payment">대금수령</li>
 	  </ul>
 	  
-		  <ul id="second_lodging_nav" style="cursor:pointer">
-		  	<li class="sec_back2">←뒤로가기</li>
-		  	<li>숙소등록</li>
-		  	<li>달력과 예약가능여부설정</li>
-		  	<li>즉시예약</li>
+		  <ul id="second_lodging_nav">
+		  	<li class="sec_back2"><a>←뒤로가기</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=321">숙소등록</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=322">달력과 예약가능여부설정</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=323">즉시예약</a></li>
 		  </ul>
 		  
-		  <ul id="second_booking_nav" style="cursor:pointer">
-		  	<li class="sec_back3">←뒤로가기</li>
-		  	<li>예약 수락</li>
-		  	<li>변경과 취소</li>
+		  <ul id="second_booking_nav">
+		  	<li class="sec_back3"><a>←뒤로가기</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=331">예약 수락</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=332">변경과 취소</a></li>
 		  </ul>
 		  
-		  <ul id="second_payment_nav" style="cursor:pointer">
-		  	<li class="sec_back4">←뒤로가기</li>
-		  	<li>대금수령방법</li>
-		  	<li>환불</li>
+		  <ul id="second_payment_nav">
+		  	<li class="sec_back4"><a>←뒤로가기</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=341">대금수령방법</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=342">환불</a></li>
 		  </ul>
 	  
-	  <ul id="travel_nav" style="cursor:pointer">
-	  	<li class="back">←뒤로가기</li>
-	  	<li>숙소찾기</li>
+	  <ul id="travel_nav">
+	  	<li class="back"><a>←뒤로가기</a></li>
+	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=41">숙소찾기</a></li>
 	  	<li id="second_houseBook">숙소예약</li>
 	  	<li id="second_charge">결제</li>
 	  	<li id="second_travelList">여행목록</li>
 	  </ul>
 	  
-		  <ul id="second_houseBook_nav" style="cursor:pointer">
-		  	<li class="sec_back5">←뒤로가기</li>
-		  	<li>호스트에게 연락하기</li>
-		  	<li>예약 요청</li>
+		  <ul id="second_houseBook_nav">
+		  	<li class="sec_back5"><a>←뒤로가기</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=421">호스트에게 연락하기</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=422">예약 요청</a></li>
 		  </ul>
 		  
-		  <ul id="second_charge_nav" style="cursor:pointer">
-		  	<li class="sec_back6">←뒤로가기</li>
-		  	<li>요금과 수수료</li>
-		  	<li>결제 방법</li>
+		  <ul id="second_charge_nav">
+		  	<li class="sec_back6"><a>←뒤로가기</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=431">요금과 수수료</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=432">결제 방법</a></li>
 		  </ul>
 		  
-		  <ul id="second_travelList_nav" style="cursor:pointer">
-		  	<li class="sec_back7">←뒤로가기</li>
-		  	<li>여행중</li>
-		  	<li>계획변경</li>
+		  <ul id="second_travelList_nav">
+		  	<li class="sec_back7"><a>←뒤로가기</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=441">여행중</a></li>
+		  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=442">계획변경</a></li>
 		  </ul>
 	  
-	  <ul id="secure_nav" style="cursor:pointer">
-	  	<li class="back">←뒤로가기</li>
-	  	<li>호스트</li>
-	  	<li>게스트</li>
-	  </ul> 
+	  <ul id="secure_nav">
+	  	<li class="back"><a>←뒤로가기</a></li>
+	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=51">호스트</a></li> <!-- 카테고리 번호를 잘못넣음 -->
+	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=52">게스트</a></li> <!-- 카테고리 번호를 잘못넣음 -->
+	  </ul>
  </div>
  
  <div id="help_content">

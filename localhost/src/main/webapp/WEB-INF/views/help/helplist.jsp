@@ -41,8 +41,7 @@
 <body>
 
  <div id="help_header">
-  <h1>어떻게 도와드릴까요?</h1>
-  
+  <h1 >어떻게 도와드릴까요?</h1>
     <div id="searchWrapper">
 	 <div id="searchIcon">
 		<span id="sico" class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -222,9 +221,10 @@
  -->
 <div id="help_wrapper"> 
  <div id="help_nav">
-  <div>
-   <a href="${pageContext.request.contextPath }/help/helplist">도움말 센터</a>
+  <div id="">
+   <h2><a href="${pageContext.request.contextPath }/help/helplist">도움말 센터</a></h2>
   </div>
+  
   <ul id="first_nav">
    <li><a id="start">시작하기</a></li>
    <li><a id="idprofile">계정과 프로필</a></li>
@@ -311,13 +311,13 @@
 	  
 	  <ul id="secure_nav">
 	  	<li class="back"><a>←뒤로가기</a></li>
-	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=61">호스트</a></li>
-	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=62">게스트</a></li>
+	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=51">호스트</a></li>
+	  	<li><a href="${pageContext.request.contextPath}/help/helplist?category=52">게스트</a></li>
 	  </ul>
  </div>
  
  <div id="help_content">
-  <h1>${category }</h1>
+  <h2>${category }</h2>
   
   <c:forEach var="list" items="${list }">
   	<a href="${pageContext.request.contextPath }/help/helplist/detail?no=${list.no }" 

@@ -150,7 +150,7 @@ public class HouseController {
 	public String userModifyFrm(HttpSession session, Model model)
 	{
 		//00. test
-		session.setAttribute("user", "1");
+		session.setAttribute("user", "1"); //이거 나중에 지우시긔 외키
 		
 		//1. 세션값 체크
 		String user=(String)session.getAttribute("user"); //세션에서 아이디 값 가져오기
