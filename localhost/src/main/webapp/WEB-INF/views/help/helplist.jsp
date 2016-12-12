@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/boot/css/bootstrap.css"/>
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/boot/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/helplist.css?ver=0.004"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/helplist.css?ver=0.005"/>
 
 <script type="text/javascript">
 
@@ -41,7 +41,7 @@
 <body>
 
  <div id="help_header">
-  <h1 >어떻게 도와드릴까요?</h1>
+  <h1>어떻게 도와드릴까요?</h1>
     <div id="searchWrapper">
 	 <div id="searchIcon">
 		<span id="sico" class="glyphicon glyphicon-search" aria-hidden="true"></span>
