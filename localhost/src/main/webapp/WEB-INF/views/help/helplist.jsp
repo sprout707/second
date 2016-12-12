@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/boot/css/bootstrap.css"/>
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/boot/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/helplist.css"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/helplist.css?ver=0.004"/>
 
 <script type="text/javascript">
 
@@ -48,7 +48,7 @@
 	 </div>
 
 	 <form action="${pageContext.request.contextPath }/help/helplist/search" method="get" id="searchHelp">
-		<input type="text" id="search" placeholder="검색 값을 입력하세요" /> 
+		<input type="text" id="search" name="search" placeholder="검색 값을 입력하세요" /> 
 	 </form>
 	</div>
  </div>
@@ -319,12 +319,23 @@
  <div id="help_content">
   <h2>${category }</h2>
   
+  <c:choose>
+  <c:when test="${!empty resultNull }">
+  	<span>${resultNull }</span>
+  </c:when>
+  
+  <c:otherwise>
+  
+  <ul>
   <c:forEach var="list" items="${list }">
-  	<a href="${pageContext.request.contextPath }/help/helplist/detail?no=${list.no }" 
-  	class="help_list">${list.title }</a>
+  	<li><a href="${pageContext.request.contextPath }/help/helplist/detail?no=${list.no }" 
+  	class="help_list">${list.title }</a></li>
   	<br/>	
   </c:forEach>
-  	
+  </ul>
+  
+  </c:otherwise>
+  </c:choose>
   
  </div>
  
