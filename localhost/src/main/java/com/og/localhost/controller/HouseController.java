@@ -3,6 +3,7 @@ package com.og.localhost.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -153,10 +154,11 @@ public class HouseController {
 	public String userModifyFrm(HttpSession session, Model model)
 	{
 		//00. test
-		session.setAttribute("user", "1"); //이거 나중에 지우시긔 외키
+		//session.setAttribute("user", "1");
 		
 		//1. 세션값 체크
-		String user=(String)session.getAttribute("user"); //세션에서 아이디 값 가져오기
+		String user=(String)session.getAttribute("user"); //세션에서 아이디 값 가져오기 
+		// -> 중요!!!!! 세션 attribute name 변경 필요!!!!!
 		
 		if(user==null || user=="")
 			return "redirect:/help/helplist"; //세션값 없을시(로그인 안한경우) 보낼 페이지
@@ -188,7 +190,8 @@ public class HouseController {
 	{
 		//1. 프로필 사진 업로드 확인
 		if(!req.getFileNames().hasNext())
-			vo.setFileName("파일이름"); //파일이름 지정 로직 필요
+			vo.setFileName("파일이름"); //파일저장 로직 필요
+		// -> 중요!!!!!!!!!! 파일저장 로직 필요!!!!
 		
 		
 		//2. 업데이트
@@ -209,8 +212,40 @@ public class HouseController {
 	}
 	
 	
+	//회원 비밀번호 찾기용 임시 페이지
+	@RequestMapping(value="/user/userpw")
+	public String userPw()
+	{
+		return "help/userfindpw";
+	}
 	
+	//회원 비밀번호 찾기
+	//1단계: 이메일 조회 -> 있으면 이메일 보내기
+	@RequestMapping(value="/user/userpwfirst", method=RequestMethod.POST)
+	public void userPwFirst(HttpServletResponse response, Model model, String email)
+	{
+		boolean result=false;
+		
+		try{
+			result=service.userSearchEmail(email, model);
+			response.getWriter().print(result);
+			
+		}catch(Exception e){
+			log.error("User email check exception: "+e.getMessage());
+		}
+	}
 	
+	//2단계: 인증코드 맞으면 진입하는 페이지이다. 비밀번호 찾아줌
+	@RequestMapping(value="/user/userpwlast",  method=RequestMethod.POST)
+	public void userPwLast(HttpServletResponse response, String email)
+	{
+		//1. 이메일 값으로 회원 비밀번호 찾기
+		//2. 회원 비밀번호 response에 쓰기
+		
+		//3. 해당 페이지에서 일어날 일
+		//3-1. 비밀번호 값을 보여준다.
+		//3-2. 모달창을 닫는다.
+	}
 	
 	
 	

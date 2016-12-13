@@ -66,6 +66,10 @@ public class HelpDAO implements InterHelpDAO {
 		return sqlsession.update("user.userFileUpdate", vo);
 	}
 	
+	public int searchEmail(String email) {
+		return sqlsession.selectOne("user.searchEmail", email);
+	}
+	
 }
 
 

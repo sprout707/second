@@ -204,6 +204,14 @@
 			<artifactId>json</artifactId>
 			<version>20160212</version>
 		</dependency>
+		
+		<!-- javax.mail -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>

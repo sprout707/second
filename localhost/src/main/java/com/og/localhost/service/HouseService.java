@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.og.localhost.dao.HelpDAO;
+import com.og.localhost.util.CertifCodeManager;
 import com.og.localhost.util.FileUtil;
+import com.og.localhost.util.MailManager;
 import com.og.localhost.vo.CategoryVO;
 import com.og.localhost.vo.HelpVO;
 import com.og.localhost.vo.UserVO;
@@ -104,6 +107,28 @@ public class HouseService implements InterHouseService {
 		//3. 프로필 사진 변경 있을 시 update
 		if(vo.getFileName()!=null)
 			result+=dao.userFileUpdate(vo);
+		
+		return result;
+	}
+	
+	//회원 비밀번호 찾기 1단계: 이메일 확인
+	public boolean userSearchEmail(String email, Model model) throws Exception {
+		
+		boolean result=true;
+		int resultNo=dao.searchEmail(email);
+		
+		//없으면 돌려보냄
+		if(resultNo<=0)
+			return false;
+		
+		//있으면 메일 보낸 후 돌려보냄
+		MailManager mail=new MailManager();
+		CertifCodeManager code=new CertifCodeManager();
+		
+		String cerCode=code.createCode();
+		mail.sendMail(email, cerCode);
+		
+		model.addAttribute("code", cerCode);
 		
 		return result;
 	}

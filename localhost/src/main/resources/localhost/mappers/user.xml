@@ -32,6 +32,11 @@
 		where no=#{no}
 	</update>
 
-
+	<select id="searchEmail" parameterType="String" resultType="int">
+		select no
+		from users
+		where status!=0
+		and email=#{email}
+	</select>
 
 </mapper>
