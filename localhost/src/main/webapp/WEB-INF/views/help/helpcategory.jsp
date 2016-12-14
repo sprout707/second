@@ -227,7 +227,7 @@
 	  </ul>
 	  
 	  <ul id="idprofile_nav">
-	  	<li class="back"><a><a>←뒤로가기</a></a></li>
+	  	<li class="back"><a>←뒤로가기</a></li>
 	  	<li id="second_profile"><a>프로필관리</a></li>
 	  	<li><a href="#" style="text-decoration:none; color:black;">보안과 비밀번호</a></li>
 	  	<li><a href="#" style="text-decoration:none; color:black;">문제해결</a></li>
@@ -297,4 +297,5 @@
 	  	<li><a href="#" style="text-decoration:none; color:black;">호스트</a></li>
 	  	<li><a href="#" style="text-decoration:none; color:black;">게스트</a></li>
 	  </ul> 
+ </div>
  </div>
