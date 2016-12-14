@@ -113,8 +113,22 @@
 			});
 		});
 		
-		//3단계 모달창 파괴 시 이벤트
+		//1단계 모달창 파괴 시 이벤트
+		$("#modal_first").on('hidden.bs.modal', function()
+		{
+			$("#email").val("");
+			$("#emailWarn").text("");
+		});
+		
+		//2단계 모달창 파괴 시 이벤트
 		$("#modal_second").on('hidden.bs.modal', function()
+		{
+			$("#code").val("");
+			$("#codeWarn").text("");
+		});
+		
+		//3단계 모달창 파괴 시 이벤트
+		$("#modal_third").on('hidden.bs.modal', function()
 		{
 			$("#third_result").text("");
 		});
