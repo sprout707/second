@@ -221,7 +221,7 @@
  -->
 <div id="help_wrapper"> 
  <div id="help_nav">
-  <div id="">
+  <div id="help_center">
    <h2><a href="${pageContext.request.contextPath }/help/helplist">도움말 센터</a></h2>
   </div>
   
