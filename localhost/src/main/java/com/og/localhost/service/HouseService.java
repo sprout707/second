@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.og.localhost.dao.HelpDAO;
@@ -112,7 +111,7 @@ public class HouseService implements InterHouseService {
 	}
 	
 	//회원 비밀번호 찾기 1단계: 이메일 확인
-	public boolean userSearchEmail(String email, Model model) throws Exception {
+	public boolean userSearchEmail(String email, String codeVal) throws Exception {
 		
 		boolean result=true;
 		int resultNo=dao.searchEmail(email);
@@ -125,10 +124,8 @@ public class HouseService implements InterHouseService {
 		MailManager mail=new MailManager();
 		CertifCodeManager code=new CertifCodeManager();
 		
-		String cerCode=code.createCode();
-		mail.sendMail(email, cerCode);
-		
-		model.addAttribute("code", cerCode);
+		codeVal=code.createCode();
+		mail.sendMail(email, codeVal);
 		
 		return result;
 	}

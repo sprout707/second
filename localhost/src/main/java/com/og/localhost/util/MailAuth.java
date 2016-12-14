@@ -5,10 +5,9 @@ import javax.mail.PasswordAuthentication;
 
 class MailAuth extends Authenticator {
 	
-	private String id="localhost702";
+	private String id="localhost702@gmail.com";
 	private String pw="asdf123!!@";
 	
-	@Override
 	public PasswordAuthentication getPasswordAuthentication()
 	{
 		return new PasswordAuthentication(id, pw);

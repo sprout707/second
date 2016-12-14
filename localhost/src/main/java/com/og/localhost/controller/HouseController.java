@@ -222,13 +222,22 @@ public class HouseController {
 	//회원 비밀번호 찾기
 	//1단계: 이메일 조회 -> 있으면 이메일 보내기
 	@RequestMapping(value="/user/userpwfirst", method=RequestMethod.POST)
-	public void userPwFirst(HttpServletResponse response, Model model, String email)
+	public void userPwFirst(HttpServletResponse response, String email)
 	{
 		boolean result=false;
+		String code="";
+		StringBuilder sb=new StringBuilder();
 		
 		try{
-			result=service.userSearchEmail(email, model);
-			response.getWriter().print(result);
+			result=service.userSearchEmail(email, code);
+			
+			sb.append("{ result: ");
+			sb.append(result);
+			sb.append(", code: ");
+			sb.append(code);
+			sb.append("}");
+			
+			response.getWriter().print(sb.toString());
 			
 		}catch(Exception e){
 			log.error("User email check exception: "+e.getMessage());
