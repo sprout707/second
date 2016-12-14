@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/boot/css/bootstrap.css"/>
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/boot/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/helplist.css?ver=0.005"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/helplist.css?ver=0.007"/>
 
 <script type="text/javascript">
 
@@ -221,7 +221,7 @@
  -->
 <div id="help_wrapper"> 
  <div id="help_nav">
-  <div id="">
+  <div id="help_center">
    <h2><a href="${pageContext.request.contextPath }/help/helplist">도움말 센터</a></h2>
   </div>
   
