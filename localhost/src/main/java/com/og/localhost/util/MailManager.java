@@ -55,11 +55,10 @@ public class MailManager {
 	    msg.setSubject(subject); //제목
 	    	        
 	    StringBuilder content=new StringBuilder();
-	    content.append(" <h2>localhost</h2> ");
 	    content.append("  다음 인증코드를 입력하세요<br/> ");
-	    content.append(" <h3>\"</h3><span style='font-size:16px; font-weight:bold;'> ");
+	    content.append(" <b style='font-size: 24px; color: silver;'>\" </b><span style='font-size:18px; font-weight:bold;'> ");
 	    content.append(certificationCode);
-	    content.append(" </span><h3>\"</h3> ");
+	    content.append(" </span><b style='font-size: 24px; color: silver;'>\"</b> ");
 	    content.append(" <br/>감사합니다. ");
 	    	
 	    msg.setText(content.toString(), "UTF-8"); //메일내용

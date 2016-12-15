@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+
+.warnig {
+	color: #ff0000;
+	font-size: 14px;
+}
+
+.pwinput {
+	width: 400px; height: 35px;
+	font-size: 18px;
+	
+	margin-top: 15px;
+}
+
+.pwbtn {
+	width: 120px; height: 30px;
+
+	font-size: 16px;
+	font-weight: bold;
+	
+	border: 0.5px solid #fe736b;
+	border-radius: 3px;
+	
+	background-color: #fe736b;
+	
+	color: white;
+}
+
+.modal-header#pwck {
+	font-weight: bold;
+	color: #646464;
+	font-size: 18px;
+}
+
+.pwckNotice {
+	font-size: 16px;
+	color: #414141;
+	
+	padding-bottom: 50px;
+}
+
+#third_result {
+	font-weight: bold;
+	font-size: 20px;
+	
+	
+}

@@ -111,23 +111,28 @@ public class HouseService implements InterHouseService {
 	}
 	
 	//회원 비밀번호 찾기 1단계: 이메일 확인
-	public boolean userSearchEmail(String email, String codeVal) throws Exception {
+	public boolean userSearchEmail(String email, StringBuilder codeVal) throws Exception {
 		
 		boolean result=true;
 		int resultNo=dao.searchEmail(email);
 		
 		//없으면 돌려보냄
-		if(resultNo<=0)
+		if(resultNo==0)
 			return false;
 		
 		//있으면 메일 보낸 후 돌려보냄
 		MailManager mail=new MailManager();
 		CertifCodeManager code=new CertifCodeManager();
 		
-		codeVal=code.createCode();
-		mail.sendMail(email, codeVal);
+		codeVal.append(code.createCode());
+		mail.sendMail(email, codeVal.toString());
 		
 		return result;
+	}
+	
+	//회원 비밀번호 찾기 마지막: 비밀번호 보여주기
+	public String userSearchPw(String email) {
+		return dao.searchPw(email);
 	}
 	
 }

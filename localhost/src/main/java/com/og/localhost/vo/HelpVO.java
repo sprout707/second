@@ -8,7 +8,7 @@ public class HelpVO {
 	private int help_categoryNo; // 도움말 카테고리 번호
 	private String type; // 도움말 카테고리 (이용안내, 신고하기, 예약방법 등등 ..)
 
-	public HelpVO () {}
+	public HelpVO () {} 
 	
 	public HelpVO(int no, String title, String content, String fileName, int help_categoryNo, String type) {
 		super();
@@ -56,7 +56,7 @@ public class HelpVO {
 		return help_categoryNo;
 	}
 
-	public void setHelp_categoryNo(int help_categoryNo) {
+	public void setHelp_categoryNo(int help_categoryNo) { 
 		this.help_categoryNo = help_categoryNo;
 	}
 
@@ -69,3 +69,9 @@ public class HelpVO {
 	}
 
 }
+
+
+
+
+
+

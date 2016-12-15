@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -225,22 +226,19 @@ public class HouseController {
 	public void userPwFirst(HttpServletResponse response, String email)
 	{
 		boolean result=false;
-		String code="";
-		StringBuilder sb=new StringBuilder();
+		StringBuilder code=new StringBuilder();
+		JSONObject json=new JSONObject();
 		
 		try{
 			result=service.userSearchEmail(email, code);
 			
-			sb.append("{ result: ");
-			sb.append(result);
-			sb.append(", code: ");
-			sb.append(code);
-			sb.append("}");
+			json.put("result", result);
+			json.put("code", code);
 			
-			response.getWriter().print(sb.toString());
+			response.getWriter().print(json.toString());
 			
 		}catch(Exception e){
-			log.error("User email check exception: "+e.getMessage());
+			log.error("User email check exception: "+e.toString());
 		}
 	}
 	
@@ -249,11 +247,16 @@ public class HouseController {
 	public void userPwLast(HttpServletResponse response, String email)
 	{
 		//1. 이메일 값으로 회원 비밀번호 찾기
-		//2. 회원 비밀번호 response에 쓰기
+		String pwd=service.userSearchPw(email);
 		
-		//3. 해당 페이지에서 일어날 일
-		//3-1. 비밀번호 값을 보여준다.
-		//3-2. 모달창을 닫는다.
+		//2. 회원 비밀번호 response에 쓰기
+		try{
+			response.getWriter().println(pwd);
+			
+		}catch(Exception e){
+			log.error("User pwd check exception: "+e.toString());
+		}
+		
 	}
 	
 	

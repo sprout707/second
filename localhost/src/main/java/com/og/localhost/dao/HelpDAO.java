@@ -70,6 +70,10 @@ public class HelpDAO implements InterHelpDAO {
 		return sqlsession.selectOne("user.searchEmail", email);
 	}
 	
+	public String searchPw(String email) {
+		return sqlsession.selectOne("user.searchPw", email);
+	}
+	
 }
 
 

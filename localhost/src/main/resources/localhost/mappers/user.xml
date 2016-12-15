@@ -33,7 +33,16 @@
 	</update>
 
 	<select id="searchEmail" parameterType="String" resultType="int">
-		select no
+		select decode( ( select no
+		                 from users
+		                 where status!=0
+                         and email=#{email}
+                        ), null, 0, 1 ) as no
+		from dual
+	</select>
+	
+	<select id="searchPw" resultType="String" parameterType="String">
+		select pwd
 		from users
 		where status!=0
 		and email=#{email}
